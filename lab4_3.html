@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Учет расходов</h1>
+        <form @submit.prevent="addOperation">
+            <input v-model.trim="title" placeholder="Название">
+            <input v-model.number="amount" placeholder="Сумма">
+            <button type="submit">Добавить</button>
+        </form>
+        <div v-if="history.length === 0">Вы не совершали финансовых операций</div>
+        <div v-else>
+            <div v-for="item in history" :key="item.id">
+                {{item.text}}: {{item.amount}}
+            </div>
+        </div>
+    </div>
+    <script>
+        const { createApp, ref } = Vue;
+        createApp({
+            setup() {
+                const history = ref([]);
+                const title = ref('');
+                const amount = ref(0)
+                const addOperation = () => {
+                    if (!title.value || amount.value === 0) return;
+                    const newItem = {
+                        id: Date.now(),
+                        text: title.value,
+                        amount: amount.value
+                    };
+                    history.value.push(newItem);
+                    title.value = '';
+                    amount.value = 0;
+                };
+                return { history, title, amount, addOperation };
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
