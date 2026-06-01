@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <form>
+        <input type="text" id="numb">
+    </form>
+    <p>Результат: <span id="result">-</span></p>
+    <script>
+        let maxnumb = '';
+        let maxsum = -1;
+        const numb = document.getElementById('numb');
+        const ResultSpan = document.getElementById('result');
+        numb.addEventListener('input', function (event) {
+            const str = event.target.value;
+            if(str === '') {
+                ResultSpan.textContent = '-';
+                return;
+            }
+            const numbmassives = str.split('0');
+            let currentMaxBlock = '';
+              let currentMaxSum = -1;
+            for (let i = 0; i < numbmassives.length; i++) {
+                const numbmassivesi = numbmassives[i];
+                if (numbmassivesi.length === 0) {
+                    continue;
+                }
+                let sum = 0;
+                for (let j = 0; j < numbmassivesi.length; j++) {
+                    sum += Number(numbmassivesi[j]);
+                }
+                 if (sum > currentMaxSum) {
+                currentMaxSum = sum;
+                currentMaxBlock = numbmassivesi;
+            }
+            }
+         if(currentMaxBlock !== '') {
+            ResultSpan.textContent = currentMaxBlock + '.' + currentMaxSum;
+         } else {
+            ResultSpan.textContent = 'Нет блоков'
+            console.log("Одни нули")
+         }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <h2>Бурочкин Сергей Экзамен 1 пример</h2>
+</head>
+
+<body>
+    <div id="formall">
+        <form>
+            <input type="text" placeholder="Введите имя" id="inp1">
+        </form>
+        <form>
+            <input type="text" placeholder="Место работы" id="inp2">
+        </form>
+        <form>
+            <input type="text" placeholder="Электронная почта для подтверждения" id="inp3">
+        </form>
+        <form>
+            <input type="text" placeholder="Области интересов" id="inp4">
+        </form>
+        <form>
+            <input type="text" placeholder="Личная страница" id="inp5">
+        </form>
+    </div>
+    <button id="bluebutton">Далее</button>
+    <style>
+        #formall {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        #bluebutton {
+            background-color: dodgerblue;
+            color: white;
+            margin-top: 5px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #inp1,
+        #inp2,
+        #inp3,
+        #inp4,
+        #inp5 {
+            height: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <script>
+        const inp1 = document.getElementById('inp1');
+        inp1.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+            }
+        })
+        const inp2 = document.getElementById('inp2');
+        inp2.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+            }
+        })
+        const inp3 = document.getElementById('inp3');
+        inp3.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+            }
+        })
+        const inp4 = document.getElementById('inp4');
+        inp4.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+            }
+        })
+        const inp5 = document.getElementById('inp5');
+        inp5.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+            }
+        })
+        const bluebutton = document.getElementById('bluebutton');
+        bluebutton.addEventListener('click', function () {
+            location.reload();
+        })
+    </script>
+</body>
+
+</html>
